@@ -11,7 +11,7 @@ public class Venda implements Serializable {
     @Id
     private Long id;
     private Date data;
-    @OneToMany
+    @OneToMany(mappedBy = "venda")
     List<ItemVenda> itensVenda;
 
     public Long getId() {

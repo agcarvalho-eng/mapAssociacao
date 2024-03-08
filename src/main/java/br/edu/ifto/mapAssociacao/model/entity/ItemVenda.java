@@ -11,8 +11,11 @@ public class ItemVenda implements Serializable {
     @Id
     private Long id;
     private double quantidade;
-    @OneToOne
+    @ManyToOne
     Produto produto;
+
+    @ManyToOne
+    Venda venda;
 
     public Long getId() {
         return id;
@@ -32,6 +35,6 @@ public class ItemVenda implements Serializable {
 
    // Método para calcular o valor total da lista ItemVenda.
     public double totalItemVenda() {
-        return getQuantidade() * produto.getValor();
+        return quantidade * produto.getValor();
     }
 }

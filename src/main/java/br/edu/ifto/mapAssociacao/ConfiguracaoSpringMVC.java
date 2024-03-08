@@ -1,4 +1,4 @@
-package br.edu.ifto.mapAssociacao.model;
+package br.edu.ifto.mapAssociacao;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
