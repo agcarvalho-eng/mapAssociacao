@@ -1,6 +1,6 @@
-package br.edu.ifto.aula02.model.repository;
+package br.edu.ifto.mapAssociacao.model.repository;
 
-import br.edu.ifto.aula02.model.entity.Produto;
+import br.edu.ifto.mapAssociacao.model.entity.Produto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;

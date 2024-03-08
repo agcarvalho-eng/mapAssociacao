@@ -1,14 +1,13 @@
-package br.edu.ifto.aula02.model.entity;
+package br.edu.ifto.mapAssociacao.model.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import java.io.Serializable;
 
 /*
-Programa para CRUD completo com entidade Produto.
+Programa para CRUD completo com entidade Produto utilizando JPA e ORM.
  */
 @Entity
 public class Produto implements Serializable {
