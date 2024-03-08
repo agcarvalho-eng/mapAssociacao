@@ -1,7 +1,7 @@
-package br.edu.ifto.aula02.controller;
+package br.edu.ifto.mapAssociacao.controller;
 
-import br.edu.ifto.aula02.model.repository.ProdutoRepository;
-import br.edu.ifto.aula02.model.entity.Produto;
+import br.edu.ifto.mapAssociacao.model.repository.ProdutoRepository;
+import br.edu.ifto.mapAssociacao.model.entity.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,11 +25,13 @@ public class ProdutoController {
      */
     @GetMapping("/form")
     public String form(Produto produto){
+
         return "/produto/form";
     }
 
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
+        model.addAttribute("msg", "Lista de Produtos");
         model.addAttribute("produtos", repository.produtos());
         return new ModelAndView("/produto/list", model); //Aponta o caminho da view no projeto em /templates/produto.
     }
@@ -47,7 +49,7 @@ public class ProdutoController {
     @GetMapping("/remove/{id}")
     public ModelAndView remove(@PathVariable("id") Long id){
         repository.remove(id);
-        return new ModelAndView("redirect:/produto/list"); //Aponta o caminho da view no projeto em /templates/list.
+        return new ModelAndView("redirect:/produto/list"); //Aponta o caminho da view no projeto em /templates/produto.
     }
     /**
      * @param id
@@ -57,7 +59,7 @@ public class ProdutoController {
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("produto", repository.produto(id));
-        return new ModelAndView("/produto/form", model); // Página onde está a estrutura html a ser mostrada (templates/form).
+        return new ModelAndView("/produto/form", model); // Aponta o caminho da view no projeto em /templates/produto).
     }
 
     @PostMapping("/update")
