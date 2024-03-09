@@ -12,10 +12,10 @@ public class ItemVenda implements Serializable {
     private Long id;
     private double quantidade;
     @ManyToOne
-    Produto produto;
+    private Produto produto;
 
     @ManyToOne
-    Venda venda;
+    private Venda venda;
 
     public Long getId() {
         return id;

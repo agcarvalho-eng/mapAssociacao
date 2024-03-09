@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Detalhes da Compra</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<h2><b>Relatório das Vendas Realizadas</b></h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Data da Compra</th>
+        <th>Valor Total (R$)</th>
+        <th colspan="2">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Iterando através da lista de vendas -->
+    <tr th:each="venda : ${itensVendas}">
+        <td th:text="${itensVenda.venda.id}"></td>
+        <td th:text="${itensVenda.venda.data}"></td>
+        <td th:text="${itensVenda.venda.totalVenda()}"></td>
+        <td> <a th:href="@{/itensVenda/listItensVenda/{id}(id=${venda.id})}">Detalhar</a> </td>
+        <td> <a onclick="return window.confirm('Tem certeza que deseja excluir esta ' +
+         'venda?')"  th:href="@{/venda/remove/{id}(id=${venda.id})}">Excluir</a> </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
