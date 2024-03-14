@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Detalhes dos Itens de uma Compra</title>
+    </head>
+    <body>
+    <h2><b>Relatório dos Itens de uma Compra</b></h2>
+        <table class="table" border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição do Item</th>
+                <th>Valor Unitário do Item (R$)</th>
+                <th>Quantidade</th>
+                <th>Valor Total do Item (R$)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Iterando através da lista dos itens de uma venda específica. -->
+            <h3>Relatório referente a venda de ID = </h3>
+            <h3 th:text="${venda.id}"></h3>
+            <h3>Data da compra:</h3>
+            <h3 th:text="${venda.data}"></h3>
+            <br>
+            <tr th:each="item : ${venda.getItensVenda()}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.produto.descricao}"></td>
+                <td th:text="${item.produto.valor}"></td>
+                <td th:text="${item.quantidade}"></td>
+                <td th:text="${item.totalItemVenda()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

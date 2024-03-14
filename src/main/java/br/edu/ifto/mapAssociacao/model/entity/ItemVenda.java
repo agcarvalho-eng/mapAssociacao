@@ -33,7 +33,23 @@ public class ItemVenda implements Serializable {
         this.quantidade = quantidade;
     }
 
-   // Método para calcular o valor total da lista ItemVenda.
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
+    // Método para calcular o valor total da lista ItemVenda.
     public double totalItemVenda() {
         return quantidade * produto.getValor();
     }

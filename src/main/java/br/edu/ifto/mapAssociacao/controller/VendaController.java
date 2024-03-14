@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-//@Transactional VERIFICAR SE SERÁ NECESSÁRIO ESTA ANOTAÇÃO.
+@Transactional //VERIFICAR SE SERÁ NECESSÁRIO ESTA ANOTAÇÃO.
 @Controller
 @RequestMapping("venda")
 public class VendaController {
@@ -28,12 +28,19 @@ public class VendaController {
         return "/venda/form";
     }
 
-    @GetMapping("/listVendas")
+    @GetMapping("/list")
     public ModelAndView listar(ModelMap model){
         model.addAttribute("msg", "Lista de Vendas");
         model.addAttribute("vendas", vendaRepository.vendas());
-        return new ModelAndView(("/venda/listVendas"), model);//Aponta o caminho da view no projeto em /templates/venda.
+        return new ModelAndView(("/venda/list"), model);//Aponta o caminho da view no projeto em /templates/venda.
     }
+
+    @GetMapping("/detail/{id}")
+    public ModelAndView detail(@PathVariable("id") Long id, ModelMap model){
+        model.addAttribute("venda", vendaRepository.venda(id));
+        return new ModelAndView("/venda/detail", model); //Aponta para o caminho da view no projeto em templates/venda.
+    }
+
     /**
      * @param id
      * @return
@@ -43,7 +50,7 @@ public class VendaController {
     @GetMapping("/remove/{id}")
     public ModelAndView remove(@PathVariable("id") Long id){
         vendaRepository.remove(id);
-        return new ModelAndView("redirect:/venda/relatorioVenda"); //Aponta o caminho da view no projeto em templates/venda.
+        return new ModelAndView("redirect:/venda/list"); //Aponta o caminho da view no projeto em templates/venda.
     }
     /**
      * @param id
@@ -58,7 +65,7 @@ public class VendaController {
     @PostMapping("/update")
     public ModelAndView update(Venda venda){
         vendaRepository.update(venda);
-        return  new ModelAndView("redirect:/venda/relatorioVenda"); //Aponta o caminho da view no projeto em templates/venda.
+        return  new ModelAndView("redirect:/venda/list"); //Aponta o caminho da view no projeto em templates/venda.
     }
 
 }
