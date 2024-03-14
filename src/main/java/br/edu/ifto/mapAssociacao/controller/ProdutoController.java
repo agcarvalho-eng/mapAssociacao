@@ -24,8 +24,8 @@ public class ProdutoController {
      * @return
      */
     @GetMapping("/form")
-    public String form(Produto produto){
-
+    public String form(Produto produto, ModelMap model){
+        model.addAttribute("produto",produto);
         return "/produto/form";
     }
 
