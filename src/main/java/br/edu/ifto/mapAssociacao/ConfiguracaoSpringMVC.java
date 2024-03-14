@@ -24,7 +24,7 @@ public class ConfiguracaoSpringMVC implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
 //        registry.addRedirectViewController("/", "/venda/listVendas");
 //        registry.addViewController("/").setViewName("redirect:/venda/list");
-        registry.addViewController("/").setViewName("forward:/venda/list");
+        registry.addViewController("/venda").setViewName("forward:/venda/list");
         registry.addViewController("/home").setViewName("produto/list");
     }
 }
