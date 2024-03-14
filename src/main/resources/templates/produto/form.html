@@ -7,7 +7,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>"FORM" para salvar ou atualizar produtos.</h1>
+    <h1 th:text="${produto.id == 0 ? 'Cadastrando um novo produto' : 'Editando um produto existente'}"></h1>
+    <!--VERIFICAR COM O PROFESSOR POR QUE NÃO ESTÁ FUNCIONANDO A MUDANÇA NO TEXTO.
+    <h1>Cadastrando um novo produto.</h1>-->
         <br>
         <form th:action="${produto.id == 0} ? @{/produto/save} : @{/produto/update}"
               th:object="${produto}" method="post">

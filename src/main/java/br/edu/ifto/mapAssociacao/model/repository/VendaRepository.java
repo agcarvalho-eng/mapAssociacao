@@ -25,8 +25,7 @@ public class VendaRepository {
     public List<Venda> vendas(){
         Query query = em.createQuery("from Venda");
         return query.getResultList();
-    }//VERIFICAR COM O PROFESSOR ESSE LIST.
-
+    }
     public void remove(Long id){
         Venda v = em.find(Venda.class, id);
         em.remove(v);
