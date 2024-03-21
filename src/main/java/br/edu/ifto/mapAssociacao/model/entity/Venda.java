@@ -11,7 +11,18 @@ public class Venda implements Serializable {
     @Id
     private Long id;
     private Date data;
-
+/* @OneToMany - Usada para mapear um relacionamento de
+ * um-para-muitos entre duas entidades em um contexto de mapeamento
+ * objeto-relacional (ORM), onde uma entidade possui uma coleção de
+ * outras entidades relacionadas.
+ *
+ * mappedBy = "venda" - A parte mappedBy especifica o nome do campo na
+ * entidade relacionada que mapeia o relacionamento. Isso indica que
+ * o mapeamento do relacionamento é bidirecional e que o lado inverso
+ * do relacionamento é responsável pelo mapeamento do banco de dados.
+ * Em outras palavras, a entidade relacionada possui a chave estrangeira
+ * que referencia a entidade atual.
+ */
     @OneToMany(mappedBy = "venda")
     private List<ItemVenda> itensVenda;
 

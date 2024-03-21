@@ -11,6 +11,16 @@ public class ItemVenda implements Serializable {
     @Id
     private Long id;
     private double quantidade;
+    /*
+     * @ManyToOne - Usada para mapear um relacionamento
+     * muitos-para-um entre duas entidades em um contexto de
+     * mapeamento objeto-relacional (ORM). Essa anotação indica
+     * que a entidade anotada possui uma associação para outra
+     * entidade e que a outra entidade pode ter várias instâncias
+     * associadas a ela. Quando se anota um campo com @ManyToOne,
+     * se está indicando que esse campo representa o lado "muitos"
+     * do relacionamento.
+     */
     @ManyToOne
     private Produto produto;
 
