@@ -3,6 +3,8 @@ package br.edu.ifto.mapAssociacao.model.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.List;
+
 /*
  * @Entity - Informando que esta classe representa
  * uma entidade e que seus objetos devem ser persistidos
@@ -51,6 +53,8 @@ public abstract class Pessoa {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Long id;
     private String nome;
+    @OneToMany(mappedBy = "pessoa")
+    private List<Venda> vendas;
 
     public Long getId() {
         return id;
@@ -66,5 +70,13 @@ public abstract class Pessoa {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public List<Venda> getVendas() {
+        return vendas;
+    }
+
+    public void setVendas(List<Venda> vendas) {
+        this.vendas = vendas;
     }
 }

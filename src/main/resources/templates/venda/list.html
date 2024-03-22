@@ -15,6 +15,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Nome do Cliente</th>
                 <th>Data da Compra</th>
                 <th>Valor Total (R$)</th>
                 <th colspan="2">Ações</th>
@@ -24,6 +25,7 @@
             <!-- Iterando através da lista de vendas -->
             <tr th:each="venda : ${vendas}">
                 <td th:text="${venda.id}"></td>
+                <td th:text="${venda.pessoa.nome}"></td>
                 <td th:text="${venda.data}"></td>
                 <td th:text="${venda.totalVenda()}"></td>
                 <td> <a th:href="@{/venda/detail/{id}(id=${venda.id})}">Detalhar</a> </td>

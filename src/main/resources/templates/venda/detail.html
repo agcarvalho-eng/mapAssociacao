@@ -24,8 +24,10 @@
             </thead>
             <tbody>
             <!-- Iterando através da lista dos itens de uma venda específica. -->
-            <h3>Relatório referente a venda de ID = </h3>
+            <h3>Relatório referente a venda de ID: </h3>
             <h3 th:text="${venda.id}"></h3>
+            <h3>Nome do cliente:</h3>
+            <h3 th:text="${venda.pessoa.nome}"></h3>
             <h3>Data da compra:</h3>
             <h3 th:text="${venda.data}"></h3>
             <br>
