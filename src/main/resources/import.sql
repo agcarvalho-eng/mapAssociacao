@@ -22,7 +22,7 @@ insert into item_Venda (produto_id, quantidade, venda_id) values (5, 1, 3);
 insert into item_Venda (produto_id, quantidade, venda_id) values (4, 2, 3);
 
 -- Insert na tabela pessoa_fisica
-insert into pessoa_fisica (id, nome, cpf) values (1, 'Joaquim', '111.111.111-11');
+insert into pessoa_fisica (id, nome, cpf, telefone) values (1, 'Joaquim', '111.111.111-11', '1111-1111');
 
 -- Insert na tabela pessoa_juridica
-insert into pessoa_juridica (id, nome, cnpj) values (2, 'Restaurante Bom de Prato', '11.111.111/0001-11');
+insert into pessoa_juridica (id, nome, cnpj, telefone) values (2, 'Restaurante Bom de Prato', '11.111.111/0001-11', '2222-2222');

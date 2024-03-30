@@ -53,6 +53,14 @@ public abstract class Pessoa {
     @GenericGenerator(name = "inc", strategy = "increment")
     private Long id;
     private String nome;
+    private String telefone;
+
+    public String getTelefone() {
+        return telefone;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
     @OneToMany(mappedBy = "pessoa")
     private List<Venda> vendas;
 
