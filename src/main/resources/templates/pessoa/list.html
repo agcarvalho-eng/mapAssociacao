@@ -2,12 +2,12 @@
 <html xmls:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
-        <title>Lista de produtos</title>
+        <title>Lista de clientes</title>
         <meta name="viewport" content="width=device-width, inicial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="estilo1.css">
     </head>
     <body>
-        <h1><b>Relatório de produtos.</b></h1>
+        <h1><b>Relatório de clientes.</b></h1>
         <br>
         <br>
         <div class="menu">
@@ -21,18 +21,27 @@
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Descrição</th>
-                <th>Valor (R$)</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>CPF ou CNPJ</th>
                 <th colspan="2">Operações</th>
             </tr>
             </thead>
-            <tr th:each="p : ${produtos}">
+            <tr th:each="p : ${pessoas}">
                 <td th:text="${p.id}"> </td>
-                <td th:text="${p.descricao}"></td>
-                <td th:text="${p.valor}"> </td>
-                <td> <a th:href="@{/produto/edit/{id}(id=${p.id})}">Editar</a> </td>
+                <td th:text="${p.nome}"></td>
+                <td th:text="${p.telefone}"></td>
+                <!-- Teste condicional para determinar se é pessoa física ou jurídica -->
+                <!--VERIFICAR COMO ACESSAR ESTES ATRIBUTOS-->
+                <div th:if="${cnpj == null}">
+                    <td th:text="${pessoaFisica.cpf}"></td>
+                </div>
+                <div th:if="${cpf == null}">
+                    <td th:text="${pessoaJuridica.cnpj}"></td>
+                </div>
+                <td> <a th:href="@{/pessoa/edit/{id}(id=${p.id})}">Editar</a> </td>
                 <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
-                        th:href="@{/produto/remove/{id}(id=${p.id})}">Excluir</a> </td>
+                        th:href="@{/pessoa/remove/{id}(id=${p.id})}">Excluir</a> </td>
             </tr>
         </table>
     </body>
