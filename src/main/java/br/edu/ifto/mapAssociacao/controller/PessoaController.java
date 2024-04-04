@@ -1,9 +1,7 @@
 package br.edu.ifto.mapAssociacao.controller;
 
 import br.edu.ifto.mapAssociacao.model.entity.Pessoa;
-import br.edu.ifto.mapAssociacao.model.entity.Produto;
 import br.edu.ifto.mapAssociacao.model.repository.PessoaRepository;
-import br.edu.ifto.mapAssociacao.model.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,20 +20,22 @@ public class PessoaController {
     PessoaRepository pessoaRepository;
 
     /**
-     * @param pessoa necessário devido utilizar no form.html o th:object que faz referência ao objeto esperado no controller.
+     * @param pessoa necessário devido utilizar no formCpf.html o th:object que faz referência ao objeto esperado no controller.
      * @return
      */
     @GetMapping("/form")
     public String form(Pessoa pessoa, ModelMap model){
         model.addAttribute("pessoa", pessoa);
-        return "/pessoa/form";
+        return "formCpf";
     }
 
     @GetMapping("/list")
     public ModelAndView listar(ModelMap model) {
         model.addAttribute("msg", "Lista de Pessoas");
         model.addAttribute("pessoas", pessoaRepository.pessoas());
-        return new ModelAndView("/pessoa/list", model); //Aponta o caminho da view no projeto em /templates/pessoa.
+        // Verificando se o temos pessoa física ou jurídica.
+
+        return new ModelAndView("listCpf", model); //Aponta o caminho da view no projeto em /templates/pessoa.
     }
     @PostMapping("/save")
     public ModelAndView save(Pessoa pessoa) {
@@ -51,7 +51,7 @@ public class PessoaController {
     @GetMapping("/remove/{id}")
     public ModelAndView remove(@PathVariable("id") Long id){
         pessoaRepository.remove(id);
-        return new ModelAndView("redirect:/pessoa/list"); //Aponta o caminho da view no projeto em /templates/pessoa.
+        return new ModelAndView("redirect:/pessoa/list");
     }
     /**
      * @param id
@@ -61,12 +61,12 @@ public class PessoaController {
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("pessoa", pessoaRepository.pessoa(id));
-        return new ModelAndView("/pessoa/form", model); // Aponta o caminho da view no projeto em /templates/pessoa).
+        return new ModelAndView("form", model); // Aponta o caminho da view no projeto em /templates/pessoa).
     }
 
     @PostMapping("/update")
     public ModelAndView update(Pessoa pessoa) {
         pessoaRepository.update(pessoa);
-        return new ModelAndView("redirect:/pessoa/list"); //Aponta o caminho da view no projeto em /templates/pessoa.
+        return new ModelAndView("redirect:/pessoa/list");
     }
 }

@@ -14,14 +14,7 @@
             <input type="hidden" th:field="*{id}">
             <input type="text" th:field="*{nome}"  placeholder="Nome">
             <input type="text" th:field="*{telefone}" placeholder="Telefone">
-            <!-- Teste condicional para determinar se é pessoa física ou jurídica -->
-        <!--VERIFICAR COMO ACESSAR ESTES ATRIBUTOS-->
-            <div th:if="${cnpj == null}">
-                <input type="text" th:field="*{pessoaFisica.cpf}" placeholder="CPF">
-            </div>
-            <div th:if="${cpf == null}">
-                <input type="text" th:field="*{pessoaJuridica.cnpj}" placeholder="CNPJ">
-            </div>
+            <input type="text" th:field="*{pessoaFisica.cpf}" placeholder="CPF">
             <input type="submit" value="Enviar">
         </form>
     </body>

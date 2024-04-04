@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Salvando ou atualizando clientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <h1 th:text="${pessoa.id == null ? 'Cadastrando um novo cliente' : 'Editando um cliente existente'}"></h1>
+    <br>
+    <form th:action="${pessoa.id == null} ? @{/pessoa/save} : @{/pessoa/update}"
+            th:object="${pessoa}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="text" th:field="*{nome}"  placeholder="Nome">
+            <input type="text" th:field="*{telefone}" placeholder="Telefone">
+            <input type="text" th:field="*{pessoaJuridica.cnpj}" placeholder="CNPJ">
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>
+

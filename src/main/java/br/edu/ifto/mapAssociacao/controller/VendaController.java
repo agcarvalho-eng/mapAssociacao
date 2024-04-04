@@ -20,7 +20,7 @@ public class VendaController {
     @Autowired
     VendaRepository vendaRepository;
     /**
-     * @param venda necessário devido utilizar no form.html o th:object que faz referência ao objeto esperado no controller.
+     * @param venda necessário devido utilizar no formCpf.html o th:object que faz referência ao objeto esperado no controller.
      * @return
      */
     @GetMapping("/form")
