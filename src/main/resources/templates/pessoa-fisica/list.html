@@ -2,7 +2,7 @@
 <html xmls:th="http://www.thymeleaf.org" xmlns:xmls="http://www.w3.org/1999/xhtml">
     <head>
         <meta charset="UTF-8">
-        <title>Lista de produtos</title>
+        <title>Lista de clientes Pessoa Física</title>
         <meta name="viewport" content="width=device-width, inicial-scale=1.0">
         <link rel="stylesheet" href="../../templates/estilo1.css"> <!-- Adicionando o arquivo CSS externo -->
     </head>
@@ -25,32 +25,32 @@
             <a th:href="@{/venda/list}">Vendas Realizadas</a>
         </nav>
         <br>
-        <h1><b>Relatório de produtos cadastrados</b></h1>
+        <h1><b>Relatório de clientes Pessoa Física</b></h1>
         <br>
-<!--        <br>
-        <div class="menu">
+        <!--<div class="menu">
             <a th:href="@{/produto/list}">Home</a>
             <a th:href="@{/produto/form}">Cadastrar Produto</a>
             <a th:href="@{/venda/list}">Vendas Realizadas</a>
-            <a th:href="@{/pessoaFisica/list}">Clientes cadastrados</a>
-        </div> -->
-        <br>
+            <a th:href="@{/templates/pessoa-fisica/list}">Clientes cadastrados</a>
+        </div>-->
         <table class="table" border="1">
             <thead>
             <tr>
                 <th>Id</th>
-                <th>Descrição</th>
-                <th>Valor (R$)</th>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>CPF</th>
                 <th colspan="2">Operações</th>
             </tr>
             </thead>
-            <tr th:each="p : ${produtos}">
+            <tr th:each="p : ${pessoasFisicas}">
                 <td th:text="${p.id}"> </td>
-                <td th:text="${p.descricao}"></td>
-                <td th:text="${p.valor}"> </td>
-                <td> <a th:href="@{/produto/edit/{id}(id=${p.id})}">Editar</a> </td>
+                <td th:text="${p.nome}"></td>
+                <td th:text="${p.telefone}"></td>
+                <td th:text="${p.cpf}"></td>
+                <td> <a th:href="@{/pessoaFisica/edit/{id}(id=${p.id})}">Editar</a> </td>
                 <td> <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
-                        th:href="@{/produto/remove/{id}(id=${p.id})}">Excluir</a> </td>
+                        th:href="@{/pessoaFisica/remove/{id}(id=${p.id})}">Excluir</a> </td>
             </tr>
         </table>
         <footer>

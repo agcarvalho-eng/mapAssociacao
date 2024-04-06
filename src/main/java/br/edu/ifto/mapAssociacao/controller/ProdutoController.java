@@ -20,7 +20,7 @@ public class ProdutoController {
     ProdutoRepository repository;
 
     /**
-     * @param produto necessário devido utilizar no formCpf.html o th:object que faz referência ao objeto esperado no controller.
+     * @param produto necessário devido utilizar no form.html o th:object que faz referência ao objeto esperado no controller.
      * @return
      */
     @GetMapping("/form")

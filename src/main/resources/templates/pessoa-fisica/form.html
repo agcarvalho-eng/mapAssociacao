@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Salvando ou atualizando produtos</title>
+        <title>Salvando ou atualizando clientes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../../templates/estilo1.css"> <!-- Adicionando o arquivo CSS externo -->
@@ -26,14 +26,15 @@
             <a th:href="@{/venda/list}">Vendas Realizadas</a>
         </nav>
         <br>
-        <h1 th:text="${produto.id == null ? 'Cadastrando um novo produto' : 'Editando um produto existente'}"></h1>
+        <h1 th:text="${pessoaFisica.id == null ? 'Cadastrando um novo cliente Pessoa Física' : 'Editando um cliente Pessoa Física existente'}"></h1>
         <br>
-        <form th:action="${produto.id == null} ? @{/produto/save} : @{/produto/update}"
-                th:object="${produto}" method="post">
-                <input type="hidden" th:field="*{id}">
-                <input type="text" th:field="*{descricao}"  placeholder="Descrição">
-                <input type="text" th:field="*{valor}" placeholder="Valor">
-                <input type="submit" value="Enviar">
+        <form th:action="${pessoaFisica.id == null} ? @{/pessoaFisica/save} : @{/pessoaFisica/update}"
+            th:object="${pessoaFisica}" method="post">
+            <input type="hidden" th:field="*{id}">
+            <input type="text" th:field="*{nome}"  placeholder="Nome">
+            <input type="text" th:field="*{telefone}" placeholder="Telefone">
+            <input type="text" th:field="*{cpf}" placeholder="CPF">
+            <input type="submit" value="Enviar">
         </form>
         <footer>
             <p>&copy; 2024 VENDA FÁCIL - Empresa de Venda de Produtos. Todos os direitos reservados.</p>
