@@ -4,18 +4,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <title>Detalhes dos Itens de uma Compra</title>
-        <link rel="stylesheet" href="../../templates/estilo1.css"> <!-- Adicionando o arquivo CSS externo -->
+        <link rel="stylesheet" href="/estilo1.css"> <!-- Adicionando o arquivo CSS externo -->
     </head>
     <body>
     <header>
         <div class="logo">
-            <img src="../../templates/imagens/logomarca.jpg" alt="Logomarca da Empresa" style="width: 4cm; height: 3cm;">
+            <img src="../../static/img/logomarca.jpg" alt="Logomarca da Empresa" style="width: 4cm; height: 3cm;">
         </div>
         <h1>VENDA FÁCIL - Venda de produtos diversos</h1>
     </header>
 
     <nav class="menu">
-        <a href="/templates/index.html">Home</a>
+        <a href="/index.html">Home</a>
         <a th:href="@{/pessoaFisica/form}">Cadastrar Cliente PF</a>
         <a th:href="@{/pessoaJuridica/form}">Cadastrar Cliente PJ</a>
         <a th:href="@{/produto/form}">Cadastrar Produto</a>
@@ -33,7 +33,7 @@
         <table class="table" border="1">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>Item ID</th>
                 <th>Descrição do Item</th>
                 <th>Valor Unitário do Item (R$)</th>
                 <th>Quantidade</th>
