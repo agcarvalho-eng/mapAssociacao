@@ -60,11 +60,15 @@ public class Venda implements Serializable {
     public void setItensVenda(List<ItemVenda> itensVenda) {
         this.itensVenda = itensVenda;
     }
+
     public double totalVenda(){
-        double totalVenda = 0;
+        return itensVenda.stream()
+                .mapToDouble(ItemVenda::totalItemVenda)
+                .sum();
+        /*double totalVenda = 0;
         for(ItemVenda itemVenda : itensVenda){
             totalVenda += itemVenda.totalItemVenda();
-        }
-        return totalVenda;
+        }*/
+        //return totalVenda;
     }
 }
